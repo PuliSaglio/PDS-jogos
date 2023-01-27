@@ -1,5 +1,10 @@
 from django.db import models
 
+class Usuario(models.Model):
+    nome_usuario = models.CharField("Usuario", max_length=20)
+    email = models.EmailField("email")
+    senha =models.CharField("Senha", max_length=30)
+
 class Modalidades(models.Model):
     nome_modalidade = models.CharField("NomeModalidade", max_length=100, default="Modalidade")
 

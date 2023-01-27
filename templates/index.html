@@ -12,11 +12,7 @@
     <p><a href="{% url 'cadastro' %}">CADASTRO</a></p>
     <p><a href="{% url 'login' %}">LOGIN</a></p>
     <p>Lista de Atividades:</p>
-    {% for atividade in lista_atividades %}
-    <p>{{atividade.modalidade}}</p>
-    {% empty %}
-    <p>Nenhuma atividade cadastrado</p>
-    {% endfor %}
+
     <p>tabela com lista de horarios, cada horario um link para atividades e cada atividade tem um link para participar que redireciona a um formulario</p>
 </body>
 </html>
