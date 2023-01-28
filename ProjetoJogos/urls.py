@@ -15,7 +15,7 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
-from core.views import home, atividade, cadastro, login, form, cadastrarEspaco, cadastrar_usuario, entrar, perfil
+from core.views import home, atividade, cadastro, login, form, cadastrarEspaco, cadastrar_usuario, entrar, perfil, Modalidade_listar, Modalidade_editar, Modalidade_remover, Modalidade_cadastro, Nivel_cadastro, Nivel_editar, Nivel_listar, Nivel_remover, Atividade_cadastro, Atividade_editar, Atividade_remover,Atividade_listar, Espaco_cadastro, Espaco_editar, Espaco_listar, Espaco_remover
 
 urlpatterns = [
     path('' , home, name="home"),
@@ -28,4 +28,25 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('cadastrar/', cadastrar_usuario),
     path('entrar/', entrar),
+    path('atividade_listar', Atividade_listar, name='atividade_listar'),
+    path('atividade_editar', Atividade_editar, name='atividade_editar'),
+    path('atividade_cadastro', Atividade_cadastro, name='atividade_cadastro'),
+    path('atividade_remover', Atividade_remover, name='atividade_remover'),
+    path('modalidade_listar', Modalidade_listar, name='modalidade_listar'),
+    path('modalidade_editar', Modalidade_editar, name='modalidade_editar'),
+    path('modalidade_listar', Modalidade_cadastro, name='modalidade_cadastro'),
+    path('modalidade_listar', Modalidade_remover, name='modalidade_remover'),
+    path('espaco_listar', Espaco_listar, name='espaco_listar'),
+    path('espaco_editar', Espaco_editar, name='espaco_editar'),
+    path('espaco_cadstro', Espaco_cadastro, name='espaco_cadastro'),
+    path('espaco_remover', Espaco_remover, name='espaco_remover'),
+    path('nivel_listar', Nivel_listar, name='nivel_listar'),
+    path('nivel_editar', Nivel_editar, name='nivel_editar'),
+    path('nivel_cadstro', Nivel_cadastro, name='nivel_cadstro'),
+    path('nivel_remover', Nivel_remover, name='nivel_remover'),
+
+
+
+
+
 ]

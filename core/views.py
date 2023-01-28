@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 from django.shortcuts import render, redirect
 from django.views.decorators.http import require_POST
 from django.contrib.auth.decorators import login_required
@@ -40,32 +39,26 @@ def sair(request):
 
 def cadastrarEspaco(request):
     form = EspacosForm(request.POST or None)
-=======
-from django.shortcuts import render
-from .models import Atividade, Nivel, Modalidades, Espaco
-from .forms import AtividadeForm, NivelForm, ModalidadeForm, EspacosForm
-
-
-
-#crud Atividade_Espaco_Nivel_Modalidade
-def Atividade_listar(request):
-    atividade = Atividade.objects.all()
->>>>>>> 63dbec9bfb8c0388a4c3b2131a9888a04a15d159
     
     contexto = {
         'todas_atividade' : atividade
     }
     return render(request,'atividade.html', contexto)
 
+def Atividade_listar(request, redirect):
+    atividade = Atividade.objects.all()
+    
+    contexto = {
+        'todos_modalidade' : atividade
+    }
+    return redirect(contexto, 'atividade.html', request)
+
+
 def Atividade_cadastro(request, redirect):
     form = AtividadeForm(request.POST or None)
     if form.is_valid():
         form.save()
-<<<<<<< HEAD
-        return redirect('home')
-=======
         return redirect('Atividade_listar')
->>>>>>> 63dbec9bfb8c0388a4c3b2131a9888a04a15d159
 
     contexto = {
        'form_atividade': form
@@ -139,6 +132,17 @@ def Modalidade_listar(request, redirect):
         'todos_modalidade' : modalidade
     }
     return redirect(contexto, 'modalidade.html', request)
+
+def Modalidade_cadastro(request, redirect):
+    form = ModalidadeForm(request.POST or None)
+    if form.is_valid():
+        form.save()
+        return redirect('Modalidade_listar')
+
+    contexto = {
+       'form_modalidade': form
+    }
+    return render(request,'gerenciar_modalidades.html', contexto)
 
 def Modalidade_editar(request, id, redirect):
     meus_modalidade = Modalidades.objects.get(pk=id)
