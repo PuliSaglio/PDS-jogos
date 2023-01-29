@@ -7,6 +7,14 @@
     <title>Document</title>
 </head>
 <body>
-    <p>Página Espaço</p>
+    <h1>Espaço</h1>
+
+    
+    {% for espaco in todos_espaco %}
+    <p>Nome: {{espaco.nome_espaco}}</p>
+
+    <a href="{% url 'atividade_editar' atividade.id %}"></a>
+    <a href="{% url 'atividade_remover' atividade.id %}"></a>
+    {% endfor %}
 </body>
 </html>

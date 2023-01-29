@@ -8,5 +8,12 @@
 </head>
 <body>
     <h1>CRUDS niveis</h1>
+
+    <form method="POST" name="nivel">
+        {% csrf_token %}
+        {{form_nivel.Nivel.label}} {{form_nivel.Nivel}}
+        <button type="submit">Salvar</button>
+    </form>
+
 </body>
 </html>

@@ -8,5 +8,12 @@
 </head>
 <body>
     <h1>Cruds modalidades</h1>
+
+    <form method="POST" name="modalidade">
+        {% csrf_token %}
+        {{form_modalidade.Nome_Modalidade.label}} {{form_modalidade.Nome_Modalidade}}
+        <button type="submit">Salvar</button>
+    </form>
+
 </body>
 </html>

@@ -24,4 +24,4 @@ class StatusForm(ModelForm):
 class ModalidadeForm(ModelForm):
     class Meta:
         model = Modalidades
-        fields = ['NomeModalidade']
+        fields = ['Nome_Modalidade']

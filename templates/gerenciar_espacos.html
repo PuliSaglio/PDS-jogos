@@ -8,9 +8,9 @@
 </head>
 <body>
     <h1>Cruds Espacos</h1>
-    <form method="POST">
+    <form method="POST" name="espaco">
         {% csrf_token %}
-        {{ form_espaco }}
+        {{form_espaco.nome_espaco.label}} {{form_espaco.nome_espaco}}
         <button type="submit">Salvar</button>
     </form>
 

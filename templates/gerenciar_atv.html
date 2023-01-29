@@ -8,5 +8,16 @@
 </head>
 <body>
     <h1>Crud de atv</h1>
+
+    <form action="post" name="atv">
+        {% csrf_token %}
+        <p>{{form_atividade.resoonsavel.label}} {{form_atividade.responsavel}} </p>
+        <p>{{form_atividade.turma.label}} {{form_atividade.turma}}</p>
+        <p>{{form_atividade.quantidade.label}} {{form_atividade.quantidade}}</p>
+        <p>{{form_atividade.data_hora_inicio.label}} {{form_atividade.data_hora_inicio}}</p>
+        <p>{{form_atividade.data_hora_fim.label}} {{form_atividade.data_hora_fim}}</p>
+
+        <button type="submit" acction="{ url atividade_cadastro }"></button>
+    </form>
 </body>
 </html>

@@ -7,6 +7,13 @@
     <title>Document</title>
 </head>
 <body>
-    <p>Nivel</p>
+    <h1>Nível</h1>
+
+    {% for nivel in todos_nivel %}
+    <p>Nível: {{nivel.Nivel}}</p>
+
+    <a href="{% url 'nivel_editar' nivel.id %}"></a>
+    <a href="{% url 'nivel_remover' nivel.id %}"></a>
+    {% endfor %}
 </body>
 </html>

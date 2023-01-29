@@ -7,6 +7,13 @@
     <title>Document</title>
 </head>
 <body>
-    <p>Modalidade</p>
+    <h1>Modalidade</h1>
+
+    {% for modalidades in todos_modalidade %}
+    <p>Modalidade: {{modalidades.Nome_Modalidade}}</p>
+
+    <a href="{% url 'modalidade_editar' modalidade.id %}"></a>
+    <a href="{% url 'modalidade_remover' modalidade.id %}"></a>
+    {% endfor %}
 </body>
 </html>

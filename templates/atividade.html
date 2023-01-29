@@ -7,7 +7,17 @@
     <title>Document</title>
 </head>
 <body>
-    <h1>Pagina da atividade</h1>
-    <p>link para formulario</p>
+    <h1>Atividades</h1>
+
+    {% for atividade in todos_atividade %}
+    <p>Responsável: {{atividade.responsavel}}</p>
+    <p>Turma: {{atividade.turma}}</p>
+    <p>Quantidade: {{atividade.quantidade}}</p>
+    <p>Data início: {{atividade.data_hora_inicio}}</p>
+    <p>Data fim: {{atividade.data_hora_fim}}</p>
+
+    <a href="{% url 'atividade_editar' atividade.id %}"></a>
+    <a href="{% url 'atividade_remover' atividade.id %}"></a>
+    {% endfor %}
 </body>
 </html>
