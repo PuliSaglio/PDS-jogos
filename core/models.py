@@ -1,29 +1,53 @@
 from django.db import models
+from django.contrib.auth.models import AbstractUser
 
-class Usuario(models.Model):
-    nome_usuario = models.CharField("Usuario", max_length=20)
-    email = models.EmailField("email")
-    senha =models.CharField("Senha", max_length=30)
+class Usuario(AbstractUser):
+    nome = models.CharField('Nome', max_length=10)
+    idade = models.IntegerField('Idade')
+    email = models.EmailField('Email')
+    matricula = models.CharField('Matricula', max_length=14, unique=True)
 
-class Modalidades(models.Model):
-    nome_modalidade = models.CharField("NomeModalidade", max_length=100, default="Modalidade")
+    USERNAME_FILED = 'matricula' 
+
+class Modalidade(models.Model):
+    nome = models.CharField('Nome', max_length=100)
+
+    def __str__(self):
+        return self.nome
 
 class Espaco(models.Model):
-    nome_espaco = models.CharField("NomeEspaco", max_length=100, default="Ginasio")
+    nome = models.CharField('Nome', max_length=100)
+
+    def __str__(self):
+        return self.nome
 
 class Nivel(models.Model):
-    nivel = models.CharField("Nivel", max_length=100, default="Nivel")
+    nome = models.CharField('Nome', max_length=100)
+
+    def __str__(self):
+        return self.nome
 
 class Status(models.Model):
-    status = models.CharField("Status", max_length=100, default="status")
+    nome = models.CharField('Nome', max_length=100)
+
+    def __str__(self):
+        return self.nome
+
+class Turma(models.Model):
+    nome = models.CharField('Nome', max_length=100)
+    turma = models.IntegerField('Ano')
+
+    def __str__(self):
+        return self.nome
+
 
 class Atividade(models.Model):
-    data_hora_inicio = models.DateField('data_hora_inicio', auto_now=True)
-    data_hora_fim = models.DateField('data_hora_fim', auto_now=True)
-    responsavel = models.CharField('responsavel', max_length=100)
-    quantidade = models.IntegerField('quantidade')
-    status = models.ForeignKey(Status, on_delete=models.CASCADE)
-    modalidade = models.ForeignKey(Modalidades, on_delete=models.CASCADE)
+    data_inicio = models.DateTimeField('Data e hora de Início ')
+    data_fim = models.DateTimeField('Data e hora do Fim')
+    quantidade_limite = models.IntegerField('Quantidade e Limite')
+    turma = models.ForeignKey(Turma, on_delete=models.CASCADE)
+    usuario = models.ForeignKey(Usuario, on_delete=models.CASCADE)
     espaco = models.ForeignKey(Espaco, on_delete=models.CASCADE)
-    turma=models.CharField('turma', max_length=100) 
-# Create your models here.
+    status = models.ForeignKey(Status, on_delete=models.CASCADE)
+    nivel = models.ForeignKey(Nivel, on_delete=models.CASCADE)
+    modalidade = models.ForeignKey(Modalidade, on_delete=models.CASCADE)
