@@ -15,19 +15,18 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
-from core.views import home, atividade, cadastro, login, form, cadastrarEspaco, cadastrar_usuario, entrar, perfil, Modalidade_listar, Modalidade_editar, Modalidade_remover, Modalidade_cadastro, Nivel_cadastro, Nivel_editar, Nivel_listar, Nivel_remover, Atividade_cadastro, Atividade_editar, Atividade_remover,Atividade_listar, Espaco_cadastro, Espaco_editar, Espaco_listar, Espaco_remover
+from core.views import home, desconectar, atividade, form, cadastrarEspaco, registro, autenticacao, perfil, Modalidade_listar, Modalidade_editar, Modalidade_remover, Modalidade_cadastro, Nivel_cadastro, Nivel_editar, Nivel_listar, Nivel_remover, Atividade_cadastro, Atividade_editar, Atividade_remover,Atividade_listar, Espaco_cadastro, Espaco_editar, Espaco_listar, Espaco_remover
 
 urlpatterns = [
     path('' , home, name="home"),
     path('perfil/', perfil, name="perfil"),
-    path('cadastro/', cadastro, name="cadastro"),
-    path('login/', login, name="login"),
+    path('cadastro/', registro, name="cadastro"),
+    path('login/', autenticacao, name="login"),
+    path("logout/", desconectar, name="logout"),
     path('atividade/', atividade, name="atividade"),
     path('form/', form, name="form"),
     path('gerenciar_espacos/', cadastrarEspaco, name="espacos"),
     path('admin/', admin.site.urls),
-    path('cadastrar/', cadastrar_usuario),
-    path('entrar/', entrar),
     path('atividade_listar/', Atividade_listar, name='atividade_listar'),
     path('atividade_editar/<int:id>/', Atividade_editar, name='atividade_editar'),
     path('atividade_cadastro/', Atividade_cadastro, name='atividade_cadastro'),

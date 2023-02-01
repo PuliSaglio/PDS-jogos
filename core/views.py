@@ -6,34 +6,31 @@ from django.contrib.auth import authenticate, logout, login as auth_login
 from .models import *
 from .forms import *
 
-@require_POST
-def cadastrar_usuario(request):
-    try:
-        usuario_aux = User.objects.get(email=request.POST['email'])
+def registro(request):
+    form = UsuarioCreationForm(request.POST or None)
+    if form.is_valid():
+        form.save()
+        return redirect('login')
+    contexto = {
+        'form': form
+    }
+    return render(request, 'registration/registro.html', contexto)
 
-        if usuario_aux:
-            return render(request, 'index.html', {'msg': 'Erro! Já existe um usuário com o mesmo e-mail'})
-
-    except User.DoesNotExist:
-        nome_usuario = request.POST['username']
-        email = request.POST['email']
-        senha = request.POST['password']
-
-        novoUsuario = User.objects.create_user(username=nome_usuario, email=email, password=senha)
-        novoUsuario.save()
-
-@require_POST
-def entrar(request):
-    usuario_aux = User.objects.get(email=request.POST['email'])
-    usuario = authenticate(username=usuario_aux.username, password=request.POST["password"])
-    if usuario is not None:
-        auth_login(request, usuario)
-        return redirect('perfil')
-
-    return redirect('home')
+def autenticacao(request):
+    if request.POST:
+        matricula = request.POST['matricula']
+        password = request.POST['senha']
+        user = authenticate(request, username=matricula, password=password)
+        if user is not None:
+            login(request, user)
+            return redirect('perfil')
+        else:
+            return render(request, 'registration\login.html')
+    else:
+        return render(request, 'registration\login.html')
 
 @login_required
-def sair(request):
+def desconectar(request):
     logout(request)
     return redirect('home')
 
@@ -214,11 +211,6 @@ def Nivel_remover(id, redirect):
 def home (request):
     return render(request, 'index.html')
 
-def cadastro (request):
-    return render(request, 'cadastro.html')
-
-def login (request):
-    return render(request, 'login.html')
 
 def atividade (request):
     return render(request, 'atividade.html')

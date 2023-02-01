@@ -7,46 +7,48 @@ class Usuario(AbstractUser):
     email = models.EmailField('Email')
     matricula = models.CharField('Matricula', max_length=14, unique=True)
 
+    def __str__(self):
+        return self.nome
+
     USERNAME_FILED = 'matricula' 
 
 class Modalidade(models.Model):
-    nome = models.CharField('Nome', max_length=100)
-
+    nome = models.CharField('Nome da modaliade', max_length=100)
+    
     def __str__(self):
         return self.nome
 
 class Espaco(models.Model):
-    nome = models.CharField('Nome', max_length=100)
-
+    nome = models.CharField('Nome do espaço', max_length=100)
+    
     def __str__(self):
         return self.nome
 
 class Nivel(models.Model):
-    nome = models.CharField('Nome', max_length=100)
+    nome = models.CharField('Nome do nivel', max_length=100)
 
     def __str__(self):
         return self.nome
 
 class Status(models.Model):
-    nome = models.CharField('Nome', max_length=100)
+    nome = models.CharField('Nome do status', max_length=100)
 
     def __str__(self):
         return self.nome
 
-class Turma(models.Model):
-    nome = models.CharField('Nome', max_length=100)
+class Turma(models.Model): 
+    nome = models.CharField('Nome da turma', max_length=100)
     turma = models.IntegerField('Ano')
 
     def __str__(self):
         return self.nome
 
-
 class Atividade(models.Model):
-    data_inicio = models.DateTimeField('Data e hora de Início ')
-    data_fim = models.DateTimeField('Data e hora do Fim')
+    data_inicio = models.DateTimeField('Data e hora de Início ',null=True)
+    data_fim = models.DateTimeField('Data e hora do Fim', null=True)
     quantidade_limite = models.IntegerField('Quantidade e Limite')
     turma = models.ForeignKey(Turma, on_delete=models.CASCADE)
-    usuario = models.ForeignKey(Usuario, on_delete=models.CASCADE)
+    usuario = models.ForeignKey(Usuario, on_delete=models.PROTECT)
     espaco = models.ForeignKey(Espaco, on_delete=models.CASCADE)
     status = models.ForeignKey(Status, on_delete=models.CASCADE)
     nivel = models.ForeignKey(Nivel, on_delete=models.CASCADE)
