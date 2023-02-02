@@ -12,8 +12,8 @@
     {% for nivel in todos_nivel %}
     <p>Nível: {{nivel.Nivel}}</p>
 
-    <a href="{% url 'nivel_editar' nivel.id %}"></a>
-    <a href="{% url 'nivel_remover' nivel.id %}"></a>
+    <a href="{% url 'nivel_editar' nivel.id %}">EDITAR</a>
+    <a href="{% url 'nivel_remover' nivel.id %}">REMOVER</a>
     {% endfor %}
 </body>
 </html>

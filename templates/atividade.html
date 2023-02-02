@@ -16,8 +16,8 @@
     <p>Data início: {{atividade.data_hora_inicio}}</p>
     <p>Data fim: {{atividade.data_hora_fim}}</p>
 
-    <a href="{% url 'atividade_editar' atividade.id %}"></a>
-    <a href="{% url 'atividade_remover' atividade.id %}"></a>
+    <a href="{% url 'atividade_editar' atividade.id %}">EDITAR</a>
+    <a href="{% url 'atividade_remover' atividade.id %}">REMOVER</a>
     {% endfor %}
 </body>
 </html>

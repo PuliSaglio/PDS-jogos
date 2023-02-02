@@ -12,8 +12,8 @@
     {% for modalidades in todos_modalidade %}
     <p>Modalidade: {{modalidades.Nome_Modalidade}}</p>
 
-    <a href="{% url 'modalidade_editar' modalidade.id %}"></a>
-    <a href="{% url 'modalidade_remover' modalidade.id %}"></a>
+    <a href="{% url 'modalidade_editar' modalidade.id %}">EDITAR</a>
+    <a href="{% url 'modalidade_remover' modalidade.id %}">REMOVER</a>
     {% endfor %}
 </body>
 </html>
