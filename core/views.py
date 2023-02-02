@@ -38,20 +38,20 @@ def sair(request):
     return redirect('home')
 
 def cadastrarEspaco(request):
-    form = EspacosForm(request.POST or None)
+    form = EspacoForm(request.POST or None)
     
     contexto = {
         'todas_atividade' : atividade
     }
     return render(request,'atividade.html', contexto)
 
-def Atividade_listar(request, redirect):
+def Atividade_listar(request):
     atividade = Atividade.objects.all()
     
     contexto = {
         'todos_modalidade' : atividade
     }
-    return redirect(contexto, 'atividade.html', request)
+    return render(contexto, 'atividade.html', request)
 
 
 def Atividade_cadastro(request, redirect):
@@ -85,16 +85,16 @@ def Atividade_remover(id, redirect):
     return redirect('Atividade_listar')
 
 
-def Espaco_listar(request, redirect):
+def Espaco_listar(request):
     espaco = Espaco.objects.all()
     
     contexto = {
         'todos_espaco' : espaco
     }
-    return redirect(contexto, 'espaco.html', request)
+    return render(contexto, 'espaco.html', request)
 
 def Espaco_cadastro(request, redirect):
-    form = EspacosForm(request.POST or None)
+    form = EspacoForm(request.POST or None)
     if form.is_valid():
         form.save()
         return redirect('Espaco_listar')
@@ -108,7 +108,7 @@ def Espaco_cadastro(request, redirect):
 def Espaco_editar(request, id, redirect):
     meus_espaco = Espaco.objects.get(pk=id)
     
-    form = EspacosForm(request.POST or None, instance = meus_espaco)
+    form = EspacoForm(request.POST or None, instance = meus_espaco)
     
     if form.is_valid():
          form.save()
@@ -125,13 +125,13 @@ def Espaco_remover(id, redirect):
     return redirect ('Espaco_listar')  
 
 
-def Modalidade_listar(request, redirect):
-    modalidade = Modalidades.objects.all()
+def Modalidade_listar(request):
+    modalidade = Modalidade.objects.all()
     
     contexto = {
         'todos_modalidade' : modalidade
     }
-    return redirect(contexto, 'modalidade.html', request)
+    return render(contexto, 'modalidade.html', request)
 
 def Modalidade_cadastro(request, redirect):
     form = ModalidadeForm(request.POST or None)
@@ -145,7 +145,7 @@ def Modalidade_cadastro(request, redirect):
     return render(request,'gerenciar_modalidades.html', contexto)
 
 def Modalidade_editar(request, id, redirect):
-    meus_modalidade = Modalidades.objects.get(pk=id)
+    meus_modalidade = Modalidade.objects.get(pk=id)
     
     form = ModalidadeForm(request.POST or None, instance = meus_modalidade)
     
@@ -159,17 +159,17 @@ def Modalidade_editar(request, id, redirect):
     return render(request, 'gerenciar_modalidades.html', contexto )  
 
 def Modalidade_remover(id, redirect):
-    meus_modalidade = Modalidades.objects.get(pk=id)
+    meus_modalidade = Modalidade.objects.get(pk=id)
     meus_modalidade.delete()
     return redirect ('Modalidade_listar')  
 
-def Nivel_listar(request, redirect):
+def Nivel_listar(request):
     nivel = Nivel.objects.all()
     
     contexto = {
         'todos_nivel' : nivel
     }
-    return redirect(contexto, 'niveis.html', request)
+    return render(contexto, 'niveis.html', request)
 
 def Nivel_cadastro(request, redirect):
     form = NivelForm(request.POST or None)
