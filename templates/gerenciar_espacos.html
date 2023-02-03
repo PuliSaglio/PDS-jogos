@@ -10,7 +10,7 @@
     <h1>Cruds Espacos</h1>
     <form method="POST" name="espaco">
         {% csrf_token %}
-        {{form_espaco.nome_espaco.label}} {{form_espaco.nome_espaco}}
+        {{form_espaco.nomeEspaco}}
         <button type="submit">Salvar</button>
     </form>
 

@@ -11,6 +11,8 @@
     <h1 class="title">Perfil</h1>
     
     <p class="texto">Seja bem vindo ao seu Perfil!</p>
+    <p><a href="{% url 'espaco_listar' %}">GERENCIAR ESPACOS</a></p>
+    <p><a href="{% url 'modalidade_listar' %}">GERENCIAR MODALIDADES</a></p>
     <form action="/sair/" method="post">
         {% csrf_token %}
         <button type="submit" class="btn">LOGOUT</button>

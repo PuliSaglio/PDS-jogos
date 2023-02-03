@@ -5,16 +5,18 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <link rel="stylesheet" type ="text/css" href="../static/css/estilo.css">    
 </head>
 <body>
-    <h1>Espaço</h1>
-
-    
+    <h1 class="title">Espaços</h1>
+    <button class="btn"><a href="{% url 'perfil' %}">Voltar ao Perfil</a></button>
+    <button class="btn"><a href="{% url 'espaco_cadastro' %}">CADASTRAR ESPACO</a></button>
     {% for espaco in todos_espaco %}
-    <p>Nome: {{espaco.nome_espaco}}</p>
-
-    <a href="{% url 'atividade_editar' atividade.id %}">EDITAR</a>
-    <a href="{% url 'atividade_remover' atividade.id %}">REMOVER</a>
+    <p class="texto">Nome: {{espaco.nomeEspaco}}</p>
+    <p><a href="{% url 'espaco_editar' espaco.id %}">EDITAR</a></p>
+    <p><a href="{% url 'espaco_remover' espaco.id %}">REMOVER</a></p>
+    <hr>
     {% endfor %}
+    
 </body>
 </html>

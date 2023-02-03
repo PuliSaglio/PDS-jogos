@@ -11,7 +11,7 @@ class ModalidadeForm(ModelForm):
 class EspacoForm(ModelForm):
     class Meta:
         model = Espaco
-        fields = ['nome']
+        fields = ['nomeEspaco']
 
 class NivelForm(ModelForm):
     class Meta:

@@ -13,7 +13,7 @@ def cadastrar_usuario(request):
 
         if usuario_aux:
             return render(request, 'index.html', {'msg': 'Erro! Já existe um usuário com o mesmo e-mail'})
-
+            
     except User.DoesNotExist:
         nome_usuario = request.POST['username']
         email = request.POST['email']
@@ -91,38 +91,38 @@ def Espaco_listar(request):
     contexto = {
         'todos_espaco' : espaco
     }
-    return render(contexto, 'espaco.html', request)
+    return render(request, 'espaco.html', contexto)
 
-def Espaco_cadastro(request, redirect):
+def Espaco_cadastro(request):
     form = EspacoForm(request.POST or None)
     if form.is_valid():
         form.save()
-        return redirect('Espaco_listar')
+        return redirect('espaco_listar')
 
     contexto = {
        'form_espaco': form
     }
-    return render(request,'gerenciar_espacos.html', contexto)
+    return render(request,'gerenciar_espacos.html',contexto)
 
 
-def Espaco_editar(request, id, redirect):
+def Espaco_editar(request, id):
     meus_espaco = Espaco.objects.get(pk=id)
     
     form = EspacoForm(request.POST or None, instance = meus_espaco)
     
     if form.is_valid():
-         form.save()
-         return redirect('Espaco_listar')
+        form.save()
+        return redirect('espaco_listar')
    
     contexto = {
         'form_espaco': form
     }
     return render(request, 'gerenciar_espacos.html', contexto )  
 
-def Espaco_remover(id, redirect):
+def Espaco_remover(request, id):
     meus_espaco = Espaco.objects.get(pk=id)
     meus_espaco.delete()
-    return redirect ('Espaco_listar')  
+    return redirect ('espaco_listar')  
 
 
 def Modalidade_listar(request):
@@ -131,37 +131,37 @@ def Modalidade_listar(request):
     contexto = {
         'todos_modalidade' : modalidade
     }
-    return render(request, contexto, 'modalidade.html')
+    return render(request,'modalidade.html', contexto)
 
-def Modalidade_cadastro(request, redirect):
+def Modalidade_cadastro(request):
     form = ModalidadeForm(request.POST or None)
     if form.is_valid():
         form.save()
-        return redirect('Modalidade_listar')
+        return redirect('modalidade_listar')
 
     contexto = {
        'form_modalidade': form
     }
     return render(request,'gerenciar_modalidades.html', contexto)
 
-def Modalidade_editar(request, id, redirect):
+def Modalidade_editar(request, id):
     meus_modalidade = Modalidade.objects.get(pk=id)
     
     form = ModalidadeForm(request.POST or None, instance = meus_modalidade)
     
     if form.is_valid():
          form.save()
-         return redirect('Modalidade_listar')
+         return redirect('modalidade_listar')
    
     contexto = {
         'form_modalidade': form
     }
     return render(request, 'gerenciar_modalidades.html', contexto )  
 
-def Modalidade_remover(id, redirect):
+def Modalidade_remover(request, id):
     meus_modalidade = Modalidade.objects.get(pk=id)
     meus_modalidade.delete()
-    return redirect ('Modalidade_listar')  
+    return redirect ('modalidade_listar')  
 
 def Nivel_listar(request):
     nivel = Nivel.objects.all()

@@ -5,15 +5,18 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <link rel="stylesheet" type ="text/css" href="../static/css/estilo.css">
+
 </head>
 <body>
-    <h1>Modalidade</h1>
-
+    <h1 class="title">Modalidades</h1>
+    <button class="btn"><a href="{% url 'perfil' %}">Voltar ao Perfil</a></button>
+    <button class="btn"><a href="{% url 'modalidade_cadastro' %}">CADASTRAR MODALIDADE</a></button>
     {% for modalidades in todos_modalidade %}
-    <p>Modalidade: {{modalidades.Nome_Modalidade}}</p>
-
-    <a href="{% url 'modalidade_editar' modalidade.id %}">EDITAR</a>
-    <a href="{% url 'modalidade_remover' modalidade.id %}">REMOVER</a>
+    <p class="texto">Modalidade: {{modalidades.nome}}</p>
+    <a href="{% url 'modalidade_editar' modalidades.id %}">EDITAR</a>
+    <a href="{% url 'modalidade_remover' modalidades.id %}">REMOVER</a>
+    <hr>
     {% endfor %}
 </body>
 </html>

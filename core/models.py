@@ -15,10 +15,10 @@ class Modalidade(models.Model):
         return self.nome
 
 class Espaco(models.Model):
-    nome = models.CharField('Nome', max_length=100, default='a')
+    nomeEspaco = models.CharField('nomeEspaco', max_length=100, default='a')
 
     def __str__(self):
-        return self.nome
+        return self.nomeEspaco
 
 class Nivel(models.Model):
     nome = models.CharField('Nome', max_length=100, default='a')
