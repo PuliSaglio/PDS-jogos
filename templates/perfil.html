@@ -9,6 +9,10 @@
 <body>
     <h1>Perfil</h1>
     <p>colocar login required dps</p>
+    <form action="/sair/" method="post">
+        {% csrf_token %}
+        <button type="submit">LOGOUT</button>
+    </form>
     <a href=''></a>
 </body>
 </html>

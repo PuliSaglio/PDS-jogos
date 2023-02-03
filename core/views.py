@@ -36,7 +36,7 @@ def entrar(request):
 def sair(request):
     logout(request)
     return redirect('home')
-    
+
 def cadastrarEspaco(request):
     form = EspacoForm(request.POST or None)
     
@@ -228,7 +228,8 @@ def form (request):
     
 def espacos (request):
     return render(request, 'gerenciar_espacos.html')
-    
+
+@login_required    
 def perfil (request):
     return render(request, 'perfil.html')
 
