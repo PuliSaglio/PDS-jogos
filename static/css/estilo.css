@@ -1,12 +1,14 @@
+html{
+    min-height: 100%;
+}
 body{
     background: linear-gradient(180.3deg, rgb(221, 221, 221) 5.5%, rgb(110, 136, 161) 90.2%);
-    height: 700px;
 }
 
 .texto{
     text-shadow: 2px 3px 5px rgba(40, 41, 35, 0.7);
 color: #282923;
-    font-size: 20px;
+    font-size: 21px;
     padding-left: 20px;
 }
 .formulario {
@@ -122,8 +124,34 @@ color: #282923;
     transition: 0.4s;
   
   }
+
+  .btn-pqn {
+    background-color: #dfb127;
+    border-radius: 8px;
+    border: 0;
+    box-sizing: border-box;
+    color: #0b0a0a;
+    cursor: pointer;
+    font-size: 1.2em;
+    font-family: 'open_sansregular';
+    height: 36px;
+    outline: 0;
+    text-align: center;
+    transition: 0.4s;
+    box-shadow: 10px 10px 20px rgba(0, 0, 0, 0.4);
+  }
   
+  .link-clean{
+    text-decoration: none;
+  }
+
   .btn:hover {
+    
+    background-color: #b78900;
+    color: #eae3e3;
+  
+  }
+  .btn-pqn:hover {
     
     background-color: #b78900;
     color: #eae3e3;

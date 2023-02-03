@@ -15,11 +15,11 @@ def cadastrar_usuario(request):
             return render(request, 'index.html', {'msg': 'Erro! Já existe um usuário com o mesmo e-mail'})
             
     except User.DoesNotExist:
-        nome_usuario = request.POST['username']
+        username = request.POST['username']
         email = request.POST['email']
-        senha = request.POST['password']
+        password = request.POST['password']
 
-        novoUsuario = User.objects.create_user(username=nome_usuario, email=email, password=senha)
+        novoUsuario = User.objects.create_user(username=username, email=email, password=password)
         novoUsuario.save()
 
 @require_POST
