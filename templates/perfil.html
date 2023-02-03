@@ -5,13 +5,15 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <link rel="stylesheet" type ="text/css" href="../static/css/estilo.css">
 </head>
 <body>
-    <h1>Perfil</h1>
-    <p>colocar login required dps</p>
+    <h1 class="title">Perfil</h1>
+    
+    <p class="texto">Seja bem vindo ao seu Perfil!</p>
     <form action="/sair/" method="post">
         {% csrf_token %}
-        <button type="submit">LOGOUT</button>
+        <button type="submit" class="btn">LOGOUT</button>
     </form>
     <a href=''></a>
 </body>

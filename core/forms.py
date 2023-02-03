@@ -1,6 +1,6 @@
 from django.forms import ModelForm
 from django import forms
-from .models import Usuario, Modalidade, Espaco, Nivel, Status, Turma, Atividade
+from .models import Usuario, Modalidade, Espaco, Nivel, Status, Turma
 from django.contrib.auth.forms import UserCreationForm
 
 class ModalidadeForm(ModelForm):
@@ -28,15 +28,15 @@ class TurmaForm(ModelForm):
         model = Turma
         fields = ['nome']
 
-class AtividadeForm(ModelForm):
-    class Meta:
-        model = Atividade
-        fields = ['data_inicio', 'data_fim', 'quantidade_limite', 'turma','usuario', 'espaco', 'status', 'nivel','modalidade']
-        widgets = {
-            'turma':forms.RadioSelect(),
-            'espaco':forms.RadioSelect(),
-            'nivel':forms.RadioSelect(),
-            'modalidade':forms.RadioSelect(),
-            'status':forms.RadioSelect(),
-        } 
+#class AtividadeForm(ModelForm):
+#    class Meta:
+#        model = Atividade
+#        fields = ['data_inicio', 'data_fim', 'quantidade_limite', 'turma','usuario', 'espaco', 'status', 'nivel','modalidade']
+#        widgets = {
+#           'turma':forms.RadioSelect(),
+#           'espaco':forms.RadioSelect(),
+#           'nivel':forms.RadioSelect(),
+#           'modalidade':forms.RadioSelect(),
+#            'status':forms.RadioSelect(),
+#        } 
 

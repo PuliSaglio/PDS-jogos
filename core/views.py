@@ -51,7 +51,7 @@ def Atividade_listar(request):
     contexto = {
         'todos_modalidade' : atividade
     }
-    return render(contexto, 'atividade.html', request)
+    return render(request, contexto, 'atividade.html')
 
 
 def Atividade_cadastro(request, redirect):
@@ -131,7 +131,7 @@ def Modalidade_listar(request):
     contexto = {
         'todos_modalidade' : modalidade
     }
-    return render(contexto, 'modalidade.html', request)
+    return render(request, contexto, 'modalidade.html')
 
 def Modalidade_cadastro(request, redirect):
     form = ModalidadeForm(request.POST or None)
@@ -231,6 +231,6 @@ def espacos (request):
 
 @login_required    
 def perfil (request):
-    return render(request, 'perfil.html')
+    return render(request, 'perfil.html',)
 
 # Create your views here.

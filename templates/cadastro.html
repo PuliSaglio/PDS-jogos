@@ -5,19 +5,32 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <link rel="stylesheet" href="../static/css/estilo.css">
 </head>
 <body>
-    <h1>Pagina de cadastro</h1>
+    <h1>Página de cadastro</h1>
     <form action="/cadastrar/" method="post">
         {% csrf_token %}
-        <label for="username">Username</label>
-        <input type="text" name="username" id="username">
-        <label for="email">Email</label>
-        <input type="email" name="email" id="email">
-        <label for="password">password</label>
-        <input type="password" name="password" id="password">
-        <button type="submit">cadastrar</button>
+        <div class="title icon icon-forward-1">Cadastre-se</div>
+        <div class="input-container">
+            <input id="username" class="input" type="text" name="username" placeholder=""/>
+            <div class="legenda-p"></div>
+            <label for="username" class="label icon icon-user-1"> Username</label>
+        </div>
+        <div class="input-container">
+            <input id="email" class="input" type="email" name="email" placeholder=""/>
+            <div class="legenda-p"></div>
+            <label for="email" class="label icon icon-user-1"> EMAIL</label>
+        </div>
+        <div class="input-container">
+            <input id="password" class="input" type="password" name="password" placeholder=""/>
+            <div class="legenda-p"></div>
+            <label for="password" class="label icon icon-user-1"> Password</label>
+        </div>
+        <button type="submit" class="btn">Entrar</button>
     </form>
-    <a href="{% url 'home' %}">VOLTAR</a>
+    <button class="btn"><a href="{% url 'home' %}">VOLTAR</a></button>
+</div>
+    
 </body>
 </html>

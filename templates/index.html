@@ -5,14 +5,12 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <link rel="stylesheet" href="/static/css/estilo.css">
+    <link rel="stylesheet" href="../static/css/estilo.css">
 </head>
 <body>
-    <h1>Pagina inicial</h1>
-    <p><a href="{% url 'cadastro' %}">CADASTRO</a></p>
-    <p><a href="{% url 'login' %}">LOGIN</a></p>
-    <p>Lista de Atividades:</p>
-
-    <p>tabela com lista de horarios, cada horario um link para atividades e cada atividade tem um link para participar que redireciona a um formulario</p>
+    <h1 class="title">Página inicial</h1>
+    <button class="btn"><a href="{% url 'cadastro' %}">CADASTRE-SE AQUI</a></button>
+    <button class="btn"><a href="{% url 'login' %}">FACA LOGIN AQUI</a></button>
+    
 </body>
 </html>
