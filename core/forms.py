@@ -40,7 +40,3 @@ class AtividadeForm(ModelForm):
             'status':forms.RadioSelect(),
         } 
 
-class UsuarioCreationForm(UserCreationForm):
-    class Meta:
-        model = Usuario
-        fields = ['username','password1','password2', 'nome','idade','email','matricula']

@@ -118,15 +118,9 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 
-AUTH_USER_MODEL = 'core.Usuario'
-
-LOGIN_REDIRECT_URL = 'perfil'
-
-LOGOUT_REDIRECT_URL = 'home'
-
-AUTH_PASSWORD_VALIDATORS = []
-
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.1/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+AUTH_USER_MODEL = 'auth.User'
